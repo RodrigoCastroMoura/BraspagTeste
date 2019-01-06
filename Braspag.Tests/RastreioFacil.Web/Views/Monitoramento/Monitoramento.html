@@ -1,0 +1,343 @@
+﻿<link rel="stylesheet" href="/Content/css/animsition.css">
+<script src="~/Scripts/Lib/animsition.js"></script>
+<style>
+    .active{
+
+        position:inherit !important;
+    }
+
+    .modal-dialog{
+        margin-top: 100px;
+    }
+
+</style>
+
+   
+<div class="page-map page-map-full" style="height:100%" ng-controller="MonitoramentoController as vm">
+    <!--[if lt IE 8]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+    <!-- Page -->
+    <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided"
+                    data-toggle="menubar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse"
+                    data-toggle="collapse">
+                <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+            </button>
+            <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
+                <img class="navbar-brand-logo" src="../../../assets/images/logo.png" title="Remark">
+                <span class="navbar-brand-text"> Remark</span>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search"
+                    data-toggle="collapse">
+                <span class="sr-only">Toggle Search</span>
+                <i class="icon wb-search" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="navbar-container container-fluid">
+            <!-- Navbar Collapse -->
+            <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+                <!-- Navbar Toolbar -->
+                <ul class="nav navbar-toolbar">
+                    <li class="hidden-float" id="toggleMenubar">
+                        <a data-toggle="menubar" style="cursor:pointer" role="button">
+                            <i class="icon hamburger hamburger-arrow-left">
+                                <span class="sr-only">Toggle menubar</span>
+                                <span class="hamburger-bar"></span>
+                            </i>
+                        </a>
+                    </li>
+                    <li class="hidden-xs" id="toggleFullscreen">
+                        <a class="icon icon-fullscreen" data-toggle="fullscreen" style="cursor:pointer" role="button">
+                            <span class="sr-only">Toggle fullscreen</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- End Navbar Toolbar -->
+                <!-- Navbar Toolbar Right -->
+                <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+
+                    <li class="dropdown">
+                        <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" style="cursor:pointer" aria-expanded="false"
+                           data-animation="scale-up" role="button">
+                            <span class="avatar avatar-online">
+                                <img src="../../../../global/portraits/5.jpg" alt="...">
+                                <i></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation">
+                                <a href="javascript:void(0)" role="menuitem" ng-click="Logout()"><i class=" icon wb-power" aria-hidden="true"></i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" href="javascript:void(0)" title="Notifications" aria-expanded="false"
+                           data-animation="scale-up" role="button">
+                            <i class="icon wb-bell" aria-hidden="true"></i>
+                            <span class="badge badge-danger up">5</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
+                            <li class="dropdown-menu-header" role="presentation">
+                                <h5>NOTIFICATIONS</h5>
+                                <span class="label label-round label-danger">New 5</span>
+                            </li>
+                            <li class="list-group" role="presentation">
+                                <div data-role="container">
+                                    <div data-role="content">
+                                        <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                                            <div class="media">
+                                                <div class="media-left padding-right-10">
+                                                    <i class="icon wb-order bg-red-600 white icon-circle" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">A new order has been placed</h6>
+                                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">5 hours ago</time>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                                            <div class="media">
+                                                <div class="media-left padding-right-10">
+                                                    <i class="icon wb-user bg-green-600 white icon-circle" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">Completed the task</h6>
+                                                    <time class="media-meta" datetime="2015-06-11T18:29:20+08:00">2 days ago</time>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                                            <div class="media">
+                                                <div class="media-left padding-right-10">
+                                                    <i class="icon wb-settings bg-red-600 white icon-circle" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">Settings updated</h6>
+                                                    <time class="media-meta" datetime="2015-06-11T14:05:00+08:00">2 days ago</time>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                                            <div class="media">
+                                                <div class="media-left padding-right-10">
+                                                    <i class="icon wb-calendar bg-blue-600 white icon-circle" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">Event started</h6>
+                                                    <time class="media-meta" datetime="2015-06-10T13:50:18+08:00">3 days ago</time>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                                            <div class="media">
+                                                <div class="media-left padding-right-10">
+                                                    <i class="icon wb-chat bg-orange-600 white icon-circle" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">Message received</h6>
+                                                    <time class="media-meta" datetime="2015-06-10T12:34:48+08:00">3 days ago</time>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown-menu-footer" role="presentation">
+                                <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
+                                    <i class="icon wb-settings" aria-hidden="true"></i>
+                                </a>
+                                <a href="javascript:void(0)" role="menuitem">
+                                    All notifications
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"></li>
+                    <li></li>
+                </ul>
+                <!-- End Navbar Toolbar Right -->
+            </div>
+            <!-- End Navbar Collapse -->
+            <!-- Site Navbar Seach -->
+            <div class="collapse navbar-search-overlap" id="site-navbar-search">
+                <form role="search">
+                    <div class="form-group">
+                        <div class="input-search">
+                            <i class="input-search-icon wb-search" aria-hidden="true"></i>
+                            <input type="text" class="form-control" name="site-search" placeholder="Search...">
+                            <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
+                                    data-toggle="collapse" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End Site Navbar Seach -->
+        </div>
+    </nav>
+    <div class="site-menubar">
+        <div class="site-menubar-body">
+            <div>
+                <div>
+                    <ul class="site-menu">
+                        <li class="site-menu-category">Menu</li>
+                        <li class="site-menu-item has-sub open" id="veiculo" style="display:none" >
+                            <a href="javascript:void(0)">
+                                <i class="site-menu-icon wb-pie-chart" aria-hidden="true"></i>
+                                <span class="site-menu-title">Veículos</span>
+                                <span class="site-menu-arrow"></span>
+                                <div class="site-menu-badge">
+                                    <span class="badge badge-success">{{vm.Dados.length}}</span>
+                                </div>
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item is-shown active">
+                                    <a class="animsition-link">
+                                        <span class="site-menu-title" ng-click="GetVeiculos(); vm.map.setZoom(8);">Todos</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="site-menu-sub" ng-repeat="pos in vm.Dados">
+                                <li class="site-menu-item" id="{{pos.placa}}">
+                                    <a class="animsition-link">
+                                        <span class="site-menu-title" ng-click="GetVeiculoDetalhe(pos.id);addClass(pos.placa)">{{pos.modelo}} ({{pos.placa}})</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="rota" class="site-menu-item has-sub bloqueio" ng-disabled="isDisabled">
+                            <a class="animsition-link" ng-click="Getpath()">
+                                <i class="site-menu-icon bd-angular" aria-hidden="true"></i>
+                                <span class="site-menu-title">Rota</span>
+                            </a>
+                        </li>
+                        <li class="site-menu-item has-sub bloqueio" ng-disabled="isDisabled">
+                            <a href="javascript:void(0)">
+                                <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+                                <span class="site-menu-title">Bloqueio/Desbloqueio</span>
+                                
+                            </a>
+                            <ul class="site-menu-sub">
+                                <li class="site-menu-item">
+                                    <a class="animsition-link">
+                                        <span class="site-menu-title" ng-click="Funcional('S')">Bloquear</span>
+                                    </a>
+                                </li>
+                                <li class="site-menu-item">
+                                    <a class="animsition-link">
+                                        <span class="site-menu-title" ng-click="Funcional('N')">Desbloquear</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="site-menu-item has-sub bloqueio" ng-disabled="isDisabled">
+                            <a href="javascript:void(0)" ng-click="open()">
+                                <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                                <span class="site-menu-title">Histórico</span>
+                            </a>
+                        </li>
+                        <li  class="site-menu-item has-sub">
+                            <a href="javascript:void(0)" ng-click="openBoleto('lg')">
+                                <i class="site-menu-icon wb-plugin" aria-hidden="true"></i>
+                                <span class="site-menu-title">Pagamento</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page">
+        <div>
+            <ng-map zoom=" 4" center="[-15.824, -47.8894]"
+                    map-type-control-options='{position:"top_right", style:"dropdown_menu", mapTypeIds:["HYBRID","ROADMAP","SATELLITE","TERRAIN"]}'
+                    street-view-control="true">
+                <marker id='{{pos.id}}'
+                        no-watcher="true"
+                        ng-repeat="pos in vm.positions"
+                        position="{{pos.lat}},{{pos.lng}}"
+                        on-click="vm.showDetail(pos)"
+                        default-style="true">
+                </marker>
+                <marker id='{{icon.id}}'
+                        no-watcher="true"
+                        ng-repeat="icon in vm.pathIcon"
+                        position="{{icon.lat}},{{icon.lng}}"
+                        default-style="true"
+                        on-click="vm.GetBuscarNome(icon)"
+                        icon="{
+                            url:'/images/pontoInformacao.png',
+                            scaledSize:[16, 16],
+                            origin: [0,0],
+                            anchor: [10,10]
+                          }">
+                </marker>
+                <info-window id="foo-iw">
+                    <div ng-non-bindable="">
+                        <center><h5><a style="cursor:pointer" ng-click="GetVeiculoDetalhe(vm.pos.id);addClass(vm.pos.placa);">{{vm.pos.modelo}} ({{vm.pos.placa}})</a></h5></center>
+                        Endereço: <b>{{neighborhood}}</b><br />
+                        Bairro: <b>{{bairro}}</b><br />
+                        Cidade: <b>{{cidade}}</b><br />
+                        Estado: <b>{{estado}}</b><br />
+                        Horário: <b>{{vm.pos.data}}</b><br />
+                        Velocidade: <b>{{vm.pos.vel}}</b><br />
+                    </div>
+                </info-window>
+                <info-window id="foo-iws">
+                    <div ng-non-bindable="">
+                        <center><h5>{{vm.pos.modelo}} ({{vm.pos.placa}})</h5></center>
+                        Endereço: <b>{{neighborhood}}</b><br />
+                        Bairro: <b>{{bairro}}</b><br />
+                        Cidade: <b>{{cidade}}</b><br />
+                        Estado: <b>{{estado}}</b><br />
+                        Horário: <b>{{vm.pos.data}}</b><br />
+                        Velocidade: <b>{{vm.pos.vel}}</b><br />
+
+                    </div>
+                </info-window>
+                <shape name="polyline" id="foo"
+                       path="{{vm.path}}"
+                       stroke-color="#FF0000"
+                       stroke-opacity="1.0"
+                       stroke-weight="3"
+                       on-mousemove="vm.IndicadoresEnable()"
+                       on-mouseout=" vm.IndicadoresDisable()">
+                </shape>
+            </ng-map>
+        </div>
+    </div>
+    <!-- End Page -->
+    <!-- Footer -->
+    <script type="text/ng-template" id="myHistory.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Rastreio Fácil</h3>
+        </div>
+        <div class="modal-body">
+            <div style="display:inline-block; min-height:290px;">
+                <div style="margin-left: 80px;" uib-datepicker ng-model="dt" class="well well-sm" ng-change="select(dt)" datepicker-options="dateOptions"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="cancel()">Fechar</button>
+        </div>
+    </script>
+    <script type="text/ng-template" id="myBoleto.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Rastreio Fácil</h3>
+        </div>
+        <div class="modal-body">
+            <div id="map2"><iframe ng-src="{{url}}" frameborder="0" style="height: 500px; width: 100%"></iframe></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="cancel()">Fechar</button>
+        </div>
+    </script>
+</div>
+
+
+

@@ -1,0 +1,95 @@
+﻿  
+<!--[if lt IE 8]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+    <!-- Page -->
+    <div class="page-login-v2 layout-full page-dark" ng-keypress="onKeyPress($event)">
+    <div class=" page animsition" data-animsition-in="fade-in" data-animsition-out="fade-out">
+        <div class="page-content">
+            <div class="page-brand-info">
+                <div class="brand">
+                    <img class="brand-img" src="/images/logo@2x.png" alt="...">
+                    <h2 class="brand-text font-size-40">Remark</h2>
+                </div>
+                <p class="font-size-20">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+            <div class="page-login-main">
+                <!--@*<div class="brand visible-xs">
+                    <img class="brand-img" src="../../../../assets/images/logo-blue@2x.png" alt="...">
+                    <h3 class="brand-text font-size-40">Remark</h3>
+                </div>*@-->
+                <h3 class="font-size-24">Sign In</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <form name="user">
+                    <div class="form-group">
+                        <label class="sr-only" for="inputEmail">CPF</label>
+                        <input type="text" class="form-control" ng-disabled="isDisabled" name="inputCpf" placeholder="CPF" ng-model="inputCpf" ui-mask="999.999.999-99" ui-mask-placeholder model-view-value="true" required>
+                        <!--@*<p ng-show=" user.inputcpf.$invalid && !user.inputcpf.$pristine" class="help-block">Seu CPF é obrigatório</p>*@-->
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : user.inputSenha.$invalid && !user.inputSenha.$pristine }">
+                        <label class="sr-only" for="inputPassword">Senha</label>
+                        <input type="password" class="form-control" name="inputSenha" ng-disabled="isDisabled" placeholder="Senha" ng-model="inputSenha" required>
+                        <p ng-show="user.inputSenha.$invalid && !user.inputSenha.$pristine" class="help-block">Sua senha é obrigatório</p>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : user.inputNovaSenha.$invalid && !user.inputNovaSenha.$pristine }">
+                        <label class="sr-only" for="inputPassword">Password</label>
+                        <input type="password" class="form-control" ng-hide="isSaving" id="inputPassword" name="inputNovaSenha" ng-model="inputNovaSenha" placeholder="Nova senha" ng-required="isDisabled">
+                        <p ng-show="user.inputNovaSenha.$invalid && !user.inputNovaSenha.$pristine" class="help-block">Nova senha é obrigatório</p>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : user.inputConfirmSenha.$invalid && !user.inputConfirmSenha.$pristine }">
+                        <label class="sr-only" for="inputPasswordCheck">Retype Password</label>
+                        <input type="password" class="form-control" id="inputPasswordCheck" name="inputConfirmSenha" ng-model="inputConfirmSenha" match-password="inputNovaSenha" ng-hide="isSaving" placeholder="Confirmar senha" ng-required="isDisabled">
+                        <p ng-show="user.inputConfirmSenha.$invalid && !user.inputConfirmSenha.$pristine" class="help-block">As senhas não confere.</p>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
+                            <input type="checkbox" id="remember" name="checkbox">
+                            <label for="inputCheckbox">Remember me</label>'
+                        </div>
+                        <a class="pull-right" style="cursor:pointer" ng-click="open()">Forgot password?</a>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block" ng-hide="isDisabled" ng-disabled="user.$invalid" ng-click="SendData()">Sign in</button>
+                    <button type="button" class="btn btn-primary btn-block" ng-hide="isSaving" ng-disabled="user.$invalid" ng-click="TrocarSenha()">Confirmar</button>
+                    <script type="text/ng-template" id="myModalContent.html">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Rastreio Fácil</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="sr-only" for="inputPassword">CPF</label>
+                                <input type="text" class="form-control" name="envioSenhaCPF" id="envioSenhaCPF" placeholder="CPF" ng-model="envioSenhaCPF" ui-mask="999.999.999-99" ui-mask-placeholder model-view-value="true">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="button" ng-click="ok()">Enviar senha</button>
+                            <button class="btn btn-default" type="button" ng-click="cancel()">Cancelar</button>
+                        </div>
+                    </script>
+                </form>
+                <footer class="page-copyright">
+                    <p>WEBSITE BY amazingSurge</p>
+                    <p>© 2015. All RIGHT RESERVED.</p>
+                    <div class="social">
+                        <a class="btn btn-icon btn-round social-twitter" href="javascript:void(0)">
+                            <i class="icon bd-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-icon btn-round social-facebook" href="javascript:void(0)">
+                            <i class="icon bd-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-icon btn-round social-google-plus" href="javascript:void(0)">
+                            <i class="icon bd-google-plus" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+  
+    <!-- End Page -->
+    <!-- Core  -->
+
+
